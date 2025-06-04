@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nosso Cantinho - Kawanne & Yago</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffe6f0, #ffb6c1);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #880e4f;
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-y: auto;
+    }
+    .container {
+      max-width: 700px;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 30px 40px;
+      border-radius: 25px;
+      box-shadow: 0 8px 24px rgba(255, 105, 180, 0.3);
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    h1 {
+      margin-bottom: 20px;
+      color: #d81b60;
+      font-size: 2.8rem;
+      text-shadow: 0 0 8px #f48fb1;
+    }
+    p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      color: #5d1049;
+      white-space: pre-line;
+      text-align: justify;
+    }
+    .galeria {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+    .galeria img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(216, 27, 96, 0.6);
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+    .galeria img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(216, 27, 96, 0.9);
+    }
+    .button {
+      background-color: #d81b60;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 4px 15px #ad1457;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+      margin-top: 10px;
+      display: inline-block;
+      user-select: none;
+    }
+    .button:hover {
+      background-color: #ad1457;
+    }
+    form {
+      margin-bottom: 30px;
+      text-align: left;
+    }
+    label {
+      font-weight: 700;
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+      color: #880e4f;
+    }
+    textarea {
+      width: 100%;
+      min-height: 80px;
+      padding: 12px 15px;
+      font-size: 1rem;
+      border-radius: 15px;
+      border: 1.5px solid #ff69b4;
+      resize: vertical;
+      outline: none;
+      color: #880e4f;
+      font-family: inherit;
+      box-sizing: border-box;
+      transition: border-color 0.3s;
+    }
+    textarea:focus {
+      border-color: #d81b60;
+    }
+    button[type="submit"] {
+      background-color: #d81b60;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 25px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 4px 15px #ad1457;
+      transition: background-color 0.3s ease;
+      margin-top: 10px;
+      display: inline-block;
+    }
+    button[type="submit"]:hover {
+      background-color: #ad1457;
+    }
+    .mensagens-lista {
+      max-height: 250px;
+      overflow-y: auto;
+      background: white;
+      border-radius: 15px;
+      padding: 15px;
+      box-shadow: 0 4px 10px rgba(216, 27, 96, 0.3);
+      text-align: left;
+      color: #5d1049;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+    .mensagem-item {
+      border-bottom: 1px solid #ffc1dd;
+      padding: 8px 0;
+      white-space: pre-wrap;
+    }
+    .mensagem-item:last-child {
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Nosso Cantinho</h1>
+    <p>
+      Este é o nosso espaço especial, onde guardamos as memórias mais doces, os sonhos mais lindos e tudo aquilo que faz nosso amor crescer.<br><br>
+      Cada foto, cada detalhe, carrega um pedacinho do nosso coração.<br><br>
+      Que este cantinho seja sempre um refúgio de amor e felicidade para nós.
+    </p>
+
+    <div class="galeria">
+      <img src="imagens/cantinho1.jpg" alt="Cantinho 1" />
+      <img src="imagens/cantinho2.jpg" alt="Cantinho 2" />
+      <img src="imagens/cantinho3.jpg" alt="Cantinho 3" />
+    </div>
+
+    <!-- Vídeo substituindo a música -->
+    <video controls loop playsinline style="width: 100%; border-radius: 20px; box-shadow: 0 6px 20px rgba(216, 27, 96, 0.3); margin-bottom: 30px;">
+    <source src="videos/cantinho_video.mp4" type="video/mp4">
+    Seu navegador não suporta o vídeo.
+    </video>
+
+    <!-- Formulário para escrever mensagem -->
+    <form id="formMensagem">
+    <label for="msgTexto">Escreva sua mensagem para o nosso cantinho:</label>
+    <textarea id="msgTexto" placeholder="Digite aqui..."></textarea>
+    <button type="submit">Enviar Mensagem</button>
+    </form>
+
+    <!-- Lista das mensagens -->
+    <div class="mensagens-lista" id="listaMensagens">
+      <!-- Mensagens vão aparecer aqui -->
+    </div>
+
+    <a href="mensagens.html" class="button">⬅ Voltar ao Menu</a>
+  </div>
+
+  <script>
+    function carregarMensagens() {
+      const lista = document.getElementById('listaMensagens');
+      lista.innerHTML = '';
+      const mensagens = JSON.parse(localStorage.getItem('mensagensCantinho') || '[]');
+      if (mensagens.length === 0) {
+        lista.innerHTML = '<p><i>Nenhuma mensagem ainda. Seja o(a) primeiro(a) a escrever!</i></p>';
+      } else {
+        mensagens.forEach(msg => {
+          const divMsg = document.createElement('div');
+          divMsg.className = 'mensagem-item';
+          divMsg.textContent = msg;
+          lista.appendChild(divMsg);
+        });
+      }
+    }
+
+    function salvarMensagem(event) {
+      event.preventDefault();
+      const textarea = document.getElementById('msgTexto');
+      const texto = textarea.value.trim();
+      if (texto.length === 0) {
+        alert('Por favor, escreva uma mensagem antes de enviar.');
+        return;
+      }
+      let mensagens = JSON.parse(localStorage.getItem('mensagensCantinho') || '[]');
+      mensagens.push(texto);
+      localStorage.setItem('mensagensCantinho', JSON.stringify(mensagens));
+      textarea.value = '';
+      carregarMensagens();
+    }
+
+    document.getElementById('formMensagem').addEventListener('submit', salvarMensagem);
+    carregarMensagens();
+  </script>
+</body>
+</html>
